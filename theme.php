@@ -31,7 +31,7 @@ try {
 <body>
 
 <header>
-    <h1>La Quizzine</h1>
+    <h1>Le Squizzie</h1>
 </header>
 
 <Section id="section-theme">

@@ -28,7 +28,7 @@ try {
 <body>
 
     <header>
-        <h1 id="index-h1">La Quizzine</h1>
+        <h1 id="index-h1">Le Squizzie</h1>
     </header>
 <main>
     <div id="bouttonPseudo">
@@ -36,9 +36,8 @@ try {
         <label for="pseudo"></label>
         <input type="text" name="pseudo" placeholder="Entrez votre pseudo" id= "pseudo2">
         <input type="submit" value="Suivant" class="bouton_submit">
-      
 </form>
-</div>
+    </div>
 </main>
 
 
