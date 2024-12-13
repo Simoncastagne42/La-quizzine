@@ -86,6 +86,11 @@ section#section-quizz{
     padding-top: 40px;
 
 }
+#nextQuestion:hover {
+cursor: pointer;
+background-color: #f1ce56;
+
+}
 
 /* CSS de l'index */
 
