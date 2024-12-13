@@ -30,13 +30,15 @@ try {
     <header>
         <h1 id="index-h1">La Quizzine</h1>
     </header>
-<main id="index-main">
-    <div id="index-div">
-        <input type="text" name="user" id="user" placeholder="Entrez votre pseudo">
-    </div>
-    <div id="#div-boutonIndex">
-        <a href="./theme.php" id="index-bouton">Suivant</a>
-    </div>
+<main>
+    <div id="bouttonPseudo">
+<form action="./process_pseudo.php" method="post" id="pseudo">
+        <label for="pseudo"></label>
+        <input type="text" name="pseudo" placeholder="Entrez votre pseudo" id= "pseudo2">
+        <input type="submit" value="Suivant" class="bouton_submit">
+      
+</form>
+</div>
 </main>
 
 
