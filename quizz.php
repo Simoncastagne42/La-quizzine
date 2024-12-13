@@ -1,7 +1,26 @@
 <?php
 require_once './utils/connect_db.php';
 
-$idQuestion = 1;
+session_start();
+
+// Réinitialiser uniquement la valeur de idQuestion à chaque refresh
+$_SESSION['idQuestion'] = 1;
+
+require_once './utils/connect_db.php';
+
+// Charger la première question
+$idQuestion = $_SESSION['idQuestion'];
+
+// Charger les réponses associées
+$sql = "SELECT * FROM `answer` WHERE idQuestion = :idQuestion";
+
+try {
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['idQuestion' => $idQuestion]);
+    $answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $error) {
+    echo "Erreur lors de la requête : " . $error->getMessage();
+}
 $sql = "SELECT * FROM `answer` WHERE idQuestion = $idQuestion";
 
 try {
@@ -36,20 +55,20 @@ try {
     </header>
 
     <main>
-        <section id="section-quizz">
-            <h2>Qui Renaud a embrassé ?</h2>
-            <article id="article-quizz">
-                <?php foreach ($answers as $answer): ?>
-                    <div class="reponse" data-correct="<?php echo $answer['isCorrect'] ? 'true' : 'false'; ?>">
-                        <?php echo htmlspecialchars($answer['textReponse']); ?>
-                    </div>
-                <?php endforeach; ?>
-            </article>
+    <section id="section-quizz">
+    <h2 id="question-title">Qui Renaud a embrassé ?</h2>
+    <article id="article-quizz">
+        <?php foreach ($answers as $answer): ?>
+            <div class="reponse" data-correct="<?php echo $answer['isCorrect'] ? 'true' : 'false'; ?>">
+                <?php echo htmlspecialchars($answer['textReponse']); ?>
+            </div>
+        <?php endforeach; ?>
+    </article>
 
-
-            <div id="pagination"><?php echo $idQuestion ?>/10</div>
-
-        </section>
+    <div id="pagination"><?php echo $idQuestion ?>/10</div>
+    <button id="nextQuestion">Question Suivante</button>
+   
+</section>
 
     </main>
 
