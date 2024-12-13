@@ -27,11 +27,12 @@ try {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Lobster&display=swap" rel="stylesheet">
+    <script defer src="./script.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>La Quizzine</h1>
+        <h1>Le Squizzie</h1>
     </header>
 
     <main>
@@ -40,10 +41,15 @@ try {
             <article id="article-quizz">
 
                 <?php foreach ($answers as $answer) {
-                    echo '<div class="reponse">' . $answer['textReponse'] . "</div>";
+
+
+                ?> <div class="reponse" <?php if ($answer['isCorrect'] == true) echo "id='bon'";
+
+                                        ?>><?php echo '<div >' . $answer['textReponse'] . "</div>"; ?></div>
+                <?php
                 } ?>
             </article>
-            <div id="pagination">3/10</div>
+            <div id="pagination"><?php echo $idQuestion ?>/10</div>
 
         </section>
 
