@@ -39,16 +39,14 @@ try {
         <section id="section-quizz">
             <h2>Qui Renaud a embrassé ?</h2>
             <article id="article-quizz">
-
-                <?php foreach ($answers as $answer) {
-
-
-                ?> <div class="reponse" <?php if ($answer['isCorrect'] == true) echo "id='bon'";
-
-                                        ?>><?php echo '<div >' . $answer['textReponse'] . "</div>"; ?></div>
-                <?php
-                } ?>
+                <?php foreach ($answers as $answer): ?>
+                    <div class="reponse" data-correct="<?php echo $answer['isCorrect'] ? 'true' : 'false'; ?>">
+                        <?php echo htmlspecialchars($answer['textReponse']); ?>
+                    </div>
+                <?php endforeach; ?>
             </article>
+
+
             <div id="pagination"><?php echo $idQuestion ?>/10</div>
 
         </section>

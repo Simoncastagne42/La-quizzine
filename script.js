@@ -1,13 +1,18 @@
-let divs = document.querySelectorAll(".reponse");
+document.addEventListener('DOMContentLoaded', () => {
+  const responses = document.querySelectorAll('.reponse');
 
-divs.forEach((div) => {
-  div.addEventListener("click", clicktesmorts);
+  responses.forEach(response => {
+      response.addEventListener('click', () => {
+          // Vérifie si la réponse est correcte
+          const isCorrect = response.getAttribute('data-correct') === 'true';
+
+          // Ajoute une classe pour la bonne réponse
+          if (isCorrect) {
+              response.classList.add('bon');
+          } else {
+              // Optionnel : ajouter une classe pour une mauvaise réponse
+              response.classList.add('mauvais');
+          }
+      });
+  });
 });
-
-function clicktesmorts(event) {
-  if (event.target.id === "bon") {
-    event.target.classList.add("bon");
-  } else {
-    event.target.classList.add("mauvais");
-  }
-}
