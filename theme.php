@@ -5,7 +5,7 @@ $sql = "SELECT * FROM `theme`";
 
 try {
     $stmt = $pdo->query($sql);
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
+    $themes = $stmt->fetchAll(PDO::FETCH_ASSOC); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
 
 } catch (PDOException $error) {
     echo "Erreur lors de la requete : " . $error->getMessage();
