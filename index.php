@@ -36,9 +36,8 @@ try {
         <label for="pseudo"></label>
         <input type="text" name="pseudo" placeholder="Entrez votre pseudo" id= "pseudo2">
         <input type="submit" value="Suivant" class="bouton_submit">
-      
 </form>
-</div>
+    </div>
 </main>
 
 
