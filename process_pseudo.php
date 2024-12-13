@@ -1,5 +1,5 @@
 <?php
-require_once './connect_db.php';
+require_once './utils/connect_db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('location: ./index.php');
@@ -69,12 +69,12 @@ session_start();
 
 if (pseudoExiste($pdo, $pseudo)) {
     $_SESSION['user'] = $pseudo;
-    header('location: ./test.php');
+    header('location: ./theme.php');
     exit;
 } else {
 
     creerPseudo($pdo, $pseudo);
     $_SESSION['user'] = $pseudo;
-    header('location: ./test.php');
+    header('location: ./theme.php');
     exit;
 }

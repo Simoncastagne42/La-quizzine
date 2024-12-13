@@ -1,6 +1,6 @@
 <?php
 require_once './utils/connect_db.php';
-
+session_start();
 $sql = "SELECT * FROM `theme`";
 
 try {
@@ -10,6 +10,10 @@ try {
 } catch (PDOException $error) {
     echo "Erreur lors de la requete : " . $error->getMessage();
 }
+
+
+
+
 
 
 ?>
@@ -32,7 +36,7 @@ try {
 
 <Section id="section-theme">
     <p>
-        Bonjour (Nom du pseudo), Veuillez choisir un thème.
+    <?php echo "Bonjour {$_SESSION['user']} Veuillez choisir un thème."?>   
     </p>
     <article id="article-theme">
         <a href="./quizz.php">Renaud</a>
