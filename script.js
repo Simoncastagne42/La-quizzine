@@ -33,12 +33,15 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("nextQuestion").addEventListener("click", function () {
   const answers = document.querySelectorAll(".reponse");
   answers.forEach((answer) => {
+    if (answer.classList.contains("selected")) {
     if (answer.getAttribute("data-correct") === "true") {
       answer.classList.add("bon"); // Réponse correcte
     } else {
       answer.classList.add("mauvais"); // Réponse incorrecte
+      
     }
-  });
+    
+  }});
   setTimeout(() => {
     // Vérifier si une réponse a été sélectionnée avant de passer à la question suivante
     if (!hasSelectedAnswer) {

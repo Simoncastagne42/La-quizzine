@@ -60,7 +60,7 @@ try {
                 <?php endforeach; ?>
             </article>
             <div id="pagination"><?php echo $idQuestion; ?>/10</div>
-            
+
             <button id="nextQuestion" class="">Question Suivante</button>
         </section>
     </main>
