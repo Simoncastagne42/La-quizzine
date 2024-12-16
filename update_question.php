@@ -16,17 +16,27 @@ if (!isset($_SESSION['idQuestion'])) {
 // Récupérer l'idQuestion actuel
 $idQuestion = $_SESSION['idQuestion'];
 
-// Charger les réponses associées à la question
-$sql = "SELECT * FROM `answer` WHERE idQuestion = :idQuestion";
+// Charger la question et les réponses associées
+$sql = "SELECT question.questionName, answer.textReponse, answer.isCorrect 
+        FROM answer 
+        INNER JOIN question ON answer.idQuestion = question.id 
+        WHERE question.id = :idQuestion";
 
 try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['idQuestion' => $idQuestion]);
     $answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Retourner les réponses et la pagination au format JSON
+    if ($answers) {
+        $textQuestion = $answers[0]['questionName'];
+    } else {
+        $textQuestion = 'Aucune question disponible.';
+    }
+
+    // Retourner les données au format JSON
     echo json_encode([
         'idQuestion' => $idQuestion,
+        'questionName' => $textQuestion,
         'answers' => $answers
     ]);
 } catch (PDOException $error) {

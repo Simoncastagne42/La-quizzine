@@ -3,37 +3,32 @@ require_once './utils/connect_db.php';
 
 session_start();
 
-// Réinitialiser uniquement la valeur de idQuestion à chaque refresh
+// Réinitialiser à la question 1 à chaque chargement de la page
 $_SESSION['idQuestion'] = 1;
 
-require_once './utils/connect_db.php';
-
-// Charger la première question
+// Charger l'idQuestion actuel
 $idQuestion = $_SESSION['idQuestion'];
 
-// Charger les réponses associées
-$sql = "SELECT * FROM `answer` WHERE idQuestion = :idQuestion";
+// Charger la question et les réponses associées
+$sql = "SELECT question.questionName, answer.textReponse, answer.isCorrect 
+        FROM answer 
+        INNER JOIN question ON answer.idQuestion = question.id 
+        WHERE question.id = :idQuestion";
 
 try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['idQuestion' => $idQuestion]);
     $answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($answers) {
+        $textQuestion = $answers[0]['questionName'];
+    } else {
+        $textQuestion = 'Aucune question disponible.';
+    }
 } catch (PDOException $error) {
-    echo "Erreur lors de la requête : " . $error->getMessage();
+    die("Erreur lors de la requête : " . $error->getMessage());
 }
-$sql = "SELECT * FROM `answer` WHERE idQuestion = $idQuestion";
-
-try {
-    $stmt = $pdo->query($sql);
-    $answers = $stmt->fetchAll(PDO::FETCH_ASSOC); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
-
-} catch (PDOException $error) {
-    echo "Erreur lors de la requete : " . $error->getMessage();
-}
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +36,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Quizzine</title>
+    <title>Le Squizzie</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,24 +50,20 @@ try {
     </header>
 
     <main>
-    <section id="section-quizz">
-    <h2 id="question-title">Qui Renaud a embrassé ?</h2>
-    <article id="article-quizz">
-        <?php foreach ($answers as $answer): ?>
-            <div class="reponse" data-correct="<?php echo $answer['isCorrect'] ? 'true' : 'false'; ?>">
-                <?php echo htmlspecialchars($answer['textReponse']); ?>
-            </div>
-        <?php endforeach; ?>
-    </article>
-
-    <div id="pagination"><?php echo $idQuestion ?>/10</div>
-    <button id="nextQuestion">Question Suivante</button>
-   
-</section>
-
+        <section id="section-quizz">
+            <h2 id="question-title"><?php echo htmlspecialchars($textQuestion); ?></h2>
+            <article id="article-quizz">
+                <?php foreach ($answers as $answer): ?>
+                    <div class="reponse" data-correct="<?php echo $answer['isCorrect'] ? 'true' : 'false'; ?>">
+                        <?php echo htmlspecialchars($answer['textReponse']); ?>
+                    </div>
+                <?php endforeach; ?>
+            </article>
+            <div id="pagination"><?php echo $idQuestion; ?>/10</div>
+            
+            <button id="nextQuestion" class="">Question Suivante</button>
+        </section>
     </main>
-
-
 </body>
 
 </html>
