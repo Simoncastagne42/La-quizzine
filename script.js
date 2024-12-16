@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Mise à jour dynamique des questions
 document.getElementById("nextQuestion").addEventListener("click", function () {
+  calculateScore();
   const answers = document.querySelectorAll(".reponse");
   answers.forEach((answer) => {
     if (answer.getAttribute("data-correct") === "true") {
@@ -88,3 +89,18 @@ document.getElementById("nextQuestion").addEventListener("click", function () {
       .catch((error) => console.error("Erreur lors de la requête :", error));
   }, 1000);
 });
+
+function calculateScore() {
+  let selectedAnswer = document.querySelector(".selected");
+  let isCorrect = selectedAnswer.getAttribute("data-correct");
+
+  fetch("score.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(isCorrect),
+  })
+    .then((res) => res.json()) // Convertir la réponse JSON
+    .then((data) => {
+      console.log("Server response:", data); // Affiche le message et le score
+    });
+}
