@@ -30,7 +30,7 @@ try {
     if ($answers) {
         $textQuestion = $answers[0]['questionName'];
     } else {
-        $textQuestion = 'Aucune question disponible.';
+        $textQuestion = 'Quizz';
     }
 
     // Retourner les données au format JSON

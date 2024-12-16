@@ -14,8 +14,6 @@ function colorCorrectAnswerOnClick(event) {
     });
 
     // Marquer la réponse sélectionnée
-
-    // Ajouter une classe pour signaler qu'elle est sélectionnée
     answer.classList.add("selected");
     hasSelectedAnswer = true; // Marquer qu'une réponse a été sélectionnée
   }
@@ -30,7 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Mise à jour dynamique des questions
-document.getElementById("nextQuestion").addEventListener("click", function () {
+const nextButton = document.getElementById("nextQuestion");
+nextButton.addEventListener("click", function () {
+  // Vérifier si une réponse a été sélectionnée avant de passer à la question suivante
+  if (!hasSelectedAnswer) {
+    alert(
+      "Veuillez sélectionner une réponse avant de passer à la question suivante !"
+    );
+    return;
+  }
+
+  // Colorer la réponse correcte/incorrecte uniquement si une réponse a été sélectionnée
   const answers = document.querySelectorAll(".reponse");
   answers.forEach((answer) => {
     if (answer.getAttribute("data-correct") === "true") {
@@ -43,15 +51,9 @@ document.getElementById("nextQuestion").addEventListener("click", function () {
       answer.classList.add("mauvais"); // Réponse incorrecte
     }
   });
-  setTimeout(() => {
-    // Vérifier si une réponse a été sélectionnée avant de passer à la question suivante
-    if (!hasSelectedAnswer) {
-      alert(
-        "Veuillez sélectionner une réponse avant de passer à la question suivante !"
-      );
-      return;
-    }
 
+  // Passer à la question suivante après un délai pour montrer les couleurs
+  setTimeout(() => {
     // Réinitialiser l'état de sélection pour la prochaine question
     hasSelectedAnswer = false;
 
@@ -79,8 +81,8 @@ document.getElementById("nextQuestion").addEventListener("click", function () {
         });
 
         // Réappliquer l'événement de clic sur les nouvelles réponses
-        const answers = document.querySelectorAll(".reponse");
-        answers.forEach((answer) => {
+        const newAnswers = document.querySelectorAll(".reponse");
+        newAnswers.forEach((answer) => {
           answer.addEventListener("click", colorCorrectAnswerOnClick);
         });
 

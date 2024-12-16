@@ -60,6 +60,9 @@ try {
                 <?php endforeach; ?>
             </article>
             <div id="pagination"><?php echo $idQuestion; ?>/10</div>
+            <?php if ($idQuestion == 10){
+                echo "Voir résultats";
+            } ?> 
 
             <button id="nextQuestion" class="">Question Suivante</button>
         </section>
