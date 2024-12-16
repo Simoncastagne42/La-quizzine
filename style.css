@@ -61,6 +61,14 @@ section#section-quizz{
     justify-content: center;
     border-radius: 10px;
 }
+.selected{
+    background-color: #f1ce56;
+    width: 800px;
+    color: #122b6a;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
 
 .bon{
     background-color: green;
