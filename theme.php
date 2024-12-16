@@ -31,9 +31,9 @@ try {
 
 <body>
 
-    <header>
-        <h1>Le Squizzie</h1>
-    </header>
+<header>
+    <h1>Le Squizzie</h1>
+</header>
 
     <Section id="section-theme">
         <p>

@@ -35,7 +35,11 @@ document.getElementById("nextQuestion").addEventListener("click", function () {
   answers.forEach((answer) => {
     if (answer.getAttribute("data-correct") === "true") {
       answer.classList.add("bon"); // Réponse correcte
-    } else {
+    }
+    if (
+      answer.classList.contains("selected") &&
+      answer.getAttribute("data-correct") !== "true"
+    ) {
       answer.classList.add("mauvais"); // Réponse incorrecte
     }
   });

@@ -20,7 +20,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Le Squizzie</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@ try {
 <body>
 
     <header>
-        <h1 id="index-h1">La Quizzine</h1>
+        <h1 id="index-h1">Le Squizzie</h1>
     </header>
 <main>
     <div id="bouttonPseudo">
@@ -38,9 +38,8 @@ try {
         <label for="pseudo"></label>
         <input type="text" name="pseudo" placeholder="Entrez votre pseudo" id= "pseudo2">
         <input type="submit" value="Suivant" class="bouton_submit">
-      
 </form>
-</div>
+    </div>
 </main>
 
 
