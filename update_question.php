@@ -42,4 +42,3 @@ try {
 } catch (PDOException $error) {
     echo json_encode(['error' => $error->getMessage()]);
 }
-?>

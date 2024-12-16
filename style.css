@@ -1,205 +1,193 @@
-
-*{
-    margin: 0;
-    padding: 0;
-}
-  
-body{
-    background-color: #f1ce56;
-    font-family: "Lobster";
+* {
+  margin: 0;
+  padding: 0;
 }
 
-h1{
-    font-size: 100px;
-    color: #122b6a;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+body {
+  background-color: #f1ce56;
+  font-family: "Lobster";
 }
 
-h2{
-    font-size:50px;
-    text-align: center;
+h1 {
+  font-size: 100px;
+  color: #122b6a;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-main{
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-
+h2 {
+  font-size: 50px;
+  text-align: center;
 }
 
-#section-quizz{
-    width: 60%;
-    height: 700px;
-    background-color:#122b6a ;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: #f1ce56;
-    font-size: 40px;
-    padding-top: 30px;
-    border-radius: 10px;
-    padding-bottom: 10px;
-}
-section#section-quizz{
-    box-shadow: 10px 5px 5px #122b6a6f;
-}
-#article-quizz{
-    padding-top: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    
+main {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
-.reponse{
-    background-color: #e8e7ea;
-    width: 800px;
-    color: #122b6a;
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
+#section-quizz {
+  width: 60%;
+  height: 700px;
+  background-color: #122b6a;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #f1ce56;
+  font-size: 40px;
+  padding-top: 30px;
+  border-radius: 10px;
+  padding-bottom: 10px;
 }
-.selected{
-    background-color: #f1ce56;
-    width: 800px;
-    color: #122b6a;
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
+section#section-quizz {
+  box-shadow: 10px 5px 5px #122b6a6f;
 }
-
-.bon{
-    background-color: green;
-    width: 800px;
-    color: #e8e7ea;
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-}
-.mauvais{
-    background-color: rgb(248, 0, 0);
-    width: 800px;
-    color: #e8e7ea;
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
+#article-quizz {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-
-.reponse:hover{
-    background-color: #f1ce56;
-    cursor: pointer;
+.reponse {
+  background-color: #e8e7ea;
+  width: 800px;
+  color: #122b6a;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+.selected {
+  background-color: #f1ce56;
+  width: 800px;
+  color: #122b6a;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
 }
 
-#pagination{
+.bon {
+  background-color: green;
+  width: 800px;
+  color: #e8e7ea;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+.mauvais {
+  background-color: rgb(248, 0, 0);
+  width: 800px;
+  color: #e8e7ea;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
 
-    height: 100px;
-    padding-top: 40px;
+.reponse:hover {
+  background-color: #f1ce56;
+  cursor: pointer;
+}
 
+#pagination {
+  height: 100px;
+  padding-top: 40px;
 }
 #nextQuestion:hover {
-cursor: pointer;
-background-color: #f1ce56;
-
+  cursor: pointer;
+  background-color: #f1ce56;
 }
 
 /* CSS de l'index */
 
-
-#user{
-    margin-top: 100px;
-    height: 80px;
-    width: 80%;
-    border-radius: 10px;
-    font-size: 50px;
-    
+#user {
+  margin-top: 100px;
+  height: 80px;
+  width: 80%;
+  border-radius: 10px;
+  font-size: 50px;
 }
 
-#index-div{
-    display: flex;
-    justify-content: center;
+#index-div {
+  display: flex;
+  justify-content: center;
 }
 
-#index-h1{
-    font-size: 180px;
-    padding-top: 50px;
+#index-h1 {
+  font-size: 180px;
+  padding-top: 50px;
 }
 
-.bouton_submit{
-    color: #e8e7ea;
-    background-color: #122b6a;
-    width: 300px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: xx-large;    
-    font-family: "Lobster";
+.bouton_submit {
+  color: #e8e7ea;
+  background-color: #122b6a;
+  width: 300px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: xx-large;
+  font-family: "Lobster";
 }
 
-.bouton_submit:hover{
-    background-color: #061c55;
-    cursor: pointer;
+.bouton_submit:hover {
+  background-color: #061c55;
+  cursor: pointer;
 }
-
 
 button,
 input,
 select,
 textarea {
-    color: #122b6a;
-    font-family: "Lobster";
-    background-color: #e8e7ea;
-    width: 300px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: xx-large;
-    text-align: center;
+  color: #122b6a;
+  font-family: "Lobster";
+  background-color: #e8e7ea;
+  width: 300px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: xx-large;
+  text-align: center;
 }
 #pseudo {
-
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
 /* CSS page theme */
 
-p{
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    color: #122b6a;
-    font-size: xx-large;
+p {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  color: #122b6a;
+  font-size: xx-large;
 }
 
-#article-theme{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
+#article-theme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
 }
 
-a{
-    background-color:#122b6a ;
-    color: #e8e7ea;
-    margin-top: 20px;
-    width: 200px;
-    height: 200px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: xx-large;
-
+a {
+  background-color: #122b6a;
+  color: #e8e7ea;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
 }
 
-a:hover{
-    color: #f1ce56;
+a:hover {
+  color: #f1ce56;
 }

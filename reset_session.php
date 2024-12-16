@@ -6,4 +6,3 @@ $_SESSION['idQuestion'] = 1;
 
 // Retourner une réponse JSON confirmant la réinitialisation
 echo json_encode(['message' => 'Session réinitialisée', 'idQuestion' => $_SESSION['idQuestion']]);
-?>
