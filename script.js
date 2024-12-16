@@ -1,3 +1,4 @@
+// Fonction pour colorer la réponse correcte/incorrecte
 function colorCorrectAnswerOnClick(event) {
     const answer = event.target;
 
@@ -29,8 +30,8 @@ document.getElementById('nextQuestion').addEventListener('click', function () {
                 return;
             }
 
-            // Mettre à jour le numéro de la question
-            document.getElementById('pagination').textContent = `${data.idQuestion}/10`;
+            // Mettre à jour le titre de la question
+            document.getElementById('question-title').textContent = data.questionName;
 
             // Mettre à jour les réponses
             const articleQuizz = document.getElementById('article-quizz');
@@ -43,26 +44,16 @@ document.getElementById('nextQuestion').addEventListener('click', function () {
                 articleQuizz.appendChild(div);
             });
 
-            // Appliquer l'événement de clic sur les nouvelles réponses
+            // Réappliquer l'événement de clic sur les nouvelles réponses
             const answers = document.querySelectorAll('.reponse');
             answers.forEach(answer => {
-                answer.addEventListener('click', colorCorrectAnswerOnClick); // Ajoute l'événement de clic aux nouvelles réponses
+                answer.addEventListener('click', colorCorrectAnswerOnClick);
             });
+
+            // Mettre à jour la pagination
+            document.getElementById('pagination').textContent = `${data.idQuestion}/10`;
         })
         .catch(error => console.error('Erreur lors de la requête :', error));
-});
-
-
-document.getElementById('resetSession').addEventListener('click', function () {
-  fetch('reset_session.php')
-      .then(response => response.json())
-      .then(data => {
-          console.log(data.message);
-          // Réinitialiser l'affichage à la première question
-          document.getElementById('pagination').textContent = `1/10`;
-          document.getElementById('article-quizz').innerHTML = '<p>Veuillez cliquer sur "Question Suivante" pour commencer.</p>';
-      })
-      .catch(error => console.error('Erreur lors de la réinitialisation :', error));
 });
 
 
